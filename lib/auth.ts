@@ -6,11 +6,14 @@ import { TUser } from "@/types/types";
 import { getUserByEmail } from "@/services/service";
 
 // Add debug logging
-console.log("Environment variables check:");
+console.log("=== Environment Variables Debug ===");
+console.log("NODE_ENV:", process.env.NODE_ENV);
 console.log("GOOGLE_CLIENT_ID:", process.env.GOOGLE_CLIENT_ID ? "Set" : "Not set");
 console.log("GOOGLE_CLIENT_SECRET:", process.env.GOOGLE_CLIENT_SECRET ? "Set" : "Not set");
 console.log("DATABASE_URL:", process.env.DATABASE_URL ? "Set" : "Not set");
 console.log("NEXTAUTH_URL:", process.env.NEXTAUTH_URL);
+console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET ? "Set" : "Not set");
+console.log("=== End Debug ===");
 
 declare module "next-auth" {
   /**
