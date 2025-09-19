@@ -9,7 +9,7 @@ export const getUserByEmail = async (email: string): Promise<TUser | null> => {
       },
     });
     if (!user) {
-      throw new Error("User not found with email: " + email);
+      return null;
     }
 
     return user;

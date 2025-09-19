@@ -24,9 +24,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     session: async ({ session, user }) => {
-      const userFromDb = await getUserByEmail(user.email);
-      if (userFromDb) {
-        session.user = userFromDb;
+      try {
+        const userFromDb = await getUserByEmail(user.email);
+        if (userFromDb) {
+          session.user = userFromDb;
+        }
+      } catch (error) {
+        console.error("Error in session callback:", error);
+        // Return the session as-is if there's an error
       }
       return session;
     },
