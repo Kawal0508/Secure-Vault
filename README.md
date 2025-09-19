@@ -237,9 +237,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Kawal Ostwal**
     - GitHub: [@Kawal0508](https://github.com/Kawal0508)
     - LinkedIn: [Kawal Ostwal](https://linkedin.com/in/kawal-ostwal)
+    
 **Siddharth Movaliya**
     - GitHub: [@siddharth-movaliya]([https://github.com/Kawal0508](https://github.com/siddharth-movaliya))
     - LinkedIn: [Siddharth Movaliya](https://www.linkedin.com/in/siddharth-movaliya/)
+    
 ---
 
 <div align="center">
