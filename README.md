@@ -1,169 +1,257 @@
-# SecureVault
+# 🔐 SecureVault
 
-SecureVault is a cloud-based file storage application that allows users to securely upload, encrypt, and manage files in their AWS S3 buckets. The application provides seamless integration with AWS services, offering multiple encryption methods to ensure data security.
+[![Next.js](https://img.shields.io/badge/Next.js-15.3.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.7.0-2D3748?style=for-the-badge&logo=prisma)](https://prisma.io/)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel)](https://vercel.com/)
 
-## Features
+> **Enterprise-grade secure file storage solution with advanced encryption and cloud integration**
 
-- **File Upload**: Drag-and-drop or browse to upload files to AWS S3.
-- **Encryption**: Supports AWS-managed keys (SSE-S3), KMS-managed keys (SSE-KMS), and customer-managed keys (SSE-C).
-- **File Management**: View, search, filter, and download files stored in AWS S3.
-- **AWS Configuration**: Configure AWS credentials and bucket settings directly from the app.
-- **Notifications**: Manage notification preferences for file uploads, encryption changes, and more.
+SecureVault is a production-ready, scalable file storage platform that provides enterprise-level security for cloud file management. Built with modern technologies and designed for high-performance environments, it offers seamless integration with AWS S3, multiple encryption methods, and robust authentication systems.
 
-## Technologies Used
+## 🌟 Key Features
 
-- **Frontend**: React, Next.js, Tailwind CSS
-- **Backend**: Prisma, AWS SDK, Next.js Server Actions
-- **Database**: PostgreSQL (via Prisma ORM)
-- **Authentication**: NextAuth.js with Google OAuth
-- **Encryption**: AES-256-CBC (custom encryption) and AWS server-side encryption
+### 🔒 **Advanced Security**
+- **Multi-layer encryption** with AES-256-CBC and AWS server-side encryption
+- **Multiple encryption methods**: AWS-managed keys (SSE-S3), KMS-managed keys (SSE-KMS), and customer-managed keys (SSE-C)
+- **Secure authentication** with NextAuth.js and Google OAuth 2.0
+- **Environment-based configuration** for sensitive data protection
 
-## Setup Instructions
+### ☁️ **Cloud Integration**
+- **AWS S3 integration** with configurable bucket management
+- **Real-time file operations** with optimized upload/download performance
+- **Scalable architecture** designed for enterprise workloads
+- **Connection pooling** for optimal database performance
 
-### Prerequisites
+### 🎯 **User Experience**
+- **Intuitive drag-and-drop interface** for seamless file management
+- **Real-time file operations** with progress tracking
+- **Advanced file filtering and search** capabilities
+- **Responsive design** optimized for all devices
 
-1. Node.js (v20 or later)
-2. PostgreSQL database
-3. AWS account with S3 and KMS services enabled
-4. Environment variables configured in a `.env` and `.env.local` file as per `.env.example` and `.env.local.example`
+### 🏗️ **Enterprise Architecture**
+- **Type-safe development** with TypeScript
+- **Database migrations** with Prisma ORM
+- **Serverless deployment** on Vercel
+- **Production-ready logging** and error handling
 
-### Installation
+## 🚀 Live Demo
 
-1. Get into the secure-vault project directory:
+**🔗 [View Live Application](https://secure-vault-wine-gamma.vercel.app/)**
 
-   ```bash
-   cd secure-vault
-   ```
+## 🛠️ Technology Stack
 
-2. Install dependencies:
+### **Frontend**
+- **Next.js 15.3.2** - React framework with App Router
+- **TypeScript 5.0** - Type-safe development
+- **Tailwind CSS 4.0** - Utility-first styling
+- **Radix UI** - Accessible component library
+- **Lucide React** - Modern icon library
 
-   ```bash
-   npm install
-   ```
+### **Backend & Database**
+- **Prisma 6.7.0** - Type-safe database ORM
+- **PostgreSQL** - Robust relational database
+- **Supabase** - Managed PostgreSQL with connection pooling
+- **NextAuth.js 5.0** - Authentication framework
 
-3. (Optional) Set up PostgreSQL using Docker Compose:
+### **Cloud & Infrastructure**
+- **Vercel** - Serverless deployment platform
+- **AWS S3** - Object storage service
+- **AWS KMS** - Key management service
+- **Google OAuth 2.0** - Authentication provider
 
-   If you don't have PostgreSQL installed locally, you can use Docker Compose to set it up:
+### **Development Tools**
+- **ESLint** - Code linting and formatting
+- **Prettier** - Code formatting
+- **Docker** - Containerization support
 
-   1. Start the PostgreSQL container:
+## 📋 Prerequisites
 
-      ```bash
-      docker-compose up -d
-      ```
+- **Node.js** 20.0 or later
+- **npm** 10.0 or later
+- **PostgreSQL** 15.0 or later (or Supabase account)
+- **AWS Account** with S3 and KMS access
+- **Google Cloud Console** project for OAuth
 
-   2. Use `securevault` as username, password and database name in `.env` and `.env.local`
+## ⚡ Quick Start
 
-4. Create and configure environment variables in a:
+### 1. **Clone the Repository**
+```bash
+git clone https://github.com/Kawal0508/Secure-Vault.git
+cd Secure-Vault
+```
 
-   `.env` file:
+### 2. **Install Dependencies**
+```bash
+npm install
+```
 
-   ```env
-   DATABASE_URL=
-   ENCRYPTION_KEY=
-   ```
+### 3. **Environment Configuration**
 
-   `.env.local` file:
+Create `.env.local` file:
+```env
+# Database
+DATABASE_URL="postgresql://username:password@host:port/database"
 
-   ```env
-   AUTH_SECRET=
-   NODE_ENV=development
-   POSTGRES_USER=
-   POSTGRES_PASSWORD=
-   POSTGRES_DB=
-   DATABASE_URL=
-   AUTH_GOOGLE_ID=
-   AUTH_GOOGLE_SECRET=
-   ```
+# Authentication
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-key"
 
-5. Run database migrations:
+# Google OAuth
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
 
-   ```bash
-    npx prisma migrate dev
-   ```
+# AWS Configuration (Optional)
+AWS_ACCESS_KEY_ID="your-aws-access-key"
+AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
+AWS_REGION="us-east-1"
+AWS_S3_BUCKET="your-bucket-name"
+```
 
-6. Start the development server:
+### 4. **Database Setup**
+```bash
+# Generate Prisma client
+npx prisma generate
 
-   ```bash
-   npm run dev
-   ```
+# Push schema to database
+npx prisma db push
+```
 
-7. Open the app in your browser at [http://localhost:3000](http://localhost:3000).
+### 5. **Start Development Server**
+```bash
+npm run dev
+```
 
-## Project Structure
+Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-### Important Files and Directories
+## 🏗️ Project Architecture
 
-- **`/app`**: Contains the main application logic.
+```
+Secure-Vault/
+├── app/                          # Next.js App Router
+│   ├── (dashboard)/             # Protected dashboard routes
+│   │   ├── dashboard/           # Main dashboard
+│   │   ├── settings/            # AWS configuration
+│   │   └── upload/              # File upload interface
+│   ├── api/                     # API routes
+│   │   └── auth/                # NextAuth.js endpoints
+│   └── globals.css              # Global styles
+├── components/                   # Reusable UI components
+│   ├── ui/                      # Base UI components
+│   ├── file-upload.tsx          # File upload component
+│   ├── files-tab.tsx            # File management interface
+│   └── settings-tab.tsx         # Configuration interface
+├── lib/                         # Utility libraries
+│   ├── auth.ts                  # NextAuth.js configuration
+│   ├── encrypt.ts               # Encryption utilities
+│   └── utils.ts                 # Helper functions
+├── prisma/                      # Database schema and migrations
+│   └── schema.prisma            # Database schema definition
+├── services/                    # Business logic services
+│   └── service.ts               # Database service layer
+└── types/                       # TypeScript type definitions
+    └── types.ts                 # Application types
+```
 
-  - **`/app/(dashboard)`**: Dashboard-related pages and actions.
-  - **`/app/page.tsx`**: Landing page for the application.
-  - **`/app/layout.tsx`**: Root layout for the application.
+## 🔧 Core Functionality
 
-- **`/components`**: Reusable UI components.
+### **File Management**
+- **Secure Upload**: Files encrypted before S3 upload
+- **Download & Decrypt**: Secure file retrieval with decryption
+- **File Metadata**: Comprehensive file information tracking
+- **Search & Filter**: Advanced file discovery capabilities
 
-  - **`/components/file-upload.tsx`**: Handles file upload functionality.
-  - **`/components/files-tab.tsx`**: Displays and filters files.
-  - **`/components/settings-tab.tsx`**: AWS and encryption settings management.
+### **AWS Integration**
+- **Credential Management**: Secure AWS credential storage
+- **Bucket Configuration**: Dynamic S3 bucket management
+- **Encryption Methods**: Multiple encryption strategy support
+- **Connection Testing**: Real-time AWS connectivity validation
 
-- **`/lib`**: Utility functions and encryption logic.
+### **Authentication & Security**
+- **OAuth 2.0**: Google-based authentication
+- **Session Management**: Secure user session handling
+- **Role-based Access**: User-specific data isolation
+- **Environment Security**: Secure configuration management
 
-  - **`/lib/encrypt.ts`**: Custom AES encryption and decryption methods.
-  - **`/lib/utils.ts`**: Utility functions for class merging.
+## 🚀 Deployment
 
-- **`/services`**: Backend services for interacting with the database.
+### **Vercel Deployment**
+1. **Connect Repository**: Link your GitHub repository to Vercel
+2. **Configure Environment Variables**: Set all required environment variables
+3. **Deploy**: Automatic deployment on git push
 
-  - **`/services/service.ts`**: Contains methods to fetch user and AWS configuration data.
+### **Environment Variables for Production**
+```env
+DATABASE_URL="postgresql://user:pass@host:port/db?sslmode=require"
+NEXTAUTH_URL="https://your-domain.vercel.app"
+NEXTAUTH_SECRET="your-production-secret"
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+```
 
-- **`/prisma`**: Prisma schema and migrations.
+## 📊 Performance & Scalability
 
-  - **`/prisma/schema.prisma`**: Defines the database schema.
-  - **`/prisma/migrations`**: Contains migration files.
+- **Serverless Architecture**: Auto-scaling with Vercel
+- **Connection Pooling**: Optimized database connections
+- **CDN Integration**: Global content delivery
+- **Efficient Caching**: Optimized data retrieval
+- **Type Safety**: Compile-time error prevention
 
-- **`/types`**: TypeScript type definitions.
-  - **`/types/types.ts`**: Defines types for users, AWS configurations, and files.
+## 🔒 Security Features
 
-### Key Methods
+- **End-to-End Encryption**: Files encrypted before cloud storage
+- **Secure Authentication**: OAuth 2.0 with Google
+- **Environment Isolation**: Secure configuration management
+- **Database Security**: Connection pooling with SSL
+- **Input Validation**: Comprehensive data sanitization
 
-#### File Upload
+## 🧪 Testing & Quality Assurance
 
-- **`uploadFileToS3`** (`/app/(dashboard)/upload/actions.ts`):
-  Encrypts and uploads files to AWS S3 using the user's selected encryption method.
+- **TypeScript**: Compile-time type checking
+- **ESLint**: Code quality enforcement
+- **Error Handling**: Comprehensive error management
+- **Logging**: Production-ready logging system
 
-#### File Download
+## 📈 Monitoring & Analytics
 
-- **`downloadFileFromS3`** (`/app/(dashboard)/dashboard/actions.ts`):
-  Downloads and decrypts files from AWS S3.
+- **Vercel Analytics**: Performance monitoring
+- **Database Monitoring**: Supabase dashboard integration
+- **Error Tracking**: Comprehensive error logging
+- **Usage Analytics**: File operation tracking
 
-#### AWS Configuration
+## 🤝 Contributing
 
-- **`saveAWSCredentials`** (`/app/(dashboard)/settings/actions.ts`):
-  Saves and validates AWS credentials and bucket configuration.
-- **`testAWSCredentials`** (`/app/(dashboard)/settings/actions.ts`):
-  Tests the connectivity of AWS credentials.
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
 
-#### Encryption
+## 📄 License
 
-- **`encryptFileWithAES`** (`/lib/encrypt.ts`):
-  Encrypts files using AES-256-CBC.
-- **`decryptFileWithAES`** (`/lib/encrypt.ts`):
-  Decrypts files using AES-256-CBC.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## How It Works
+## 👨‍💻 Author
 
-1. **Authentication**: Users sign in using Google OAuth via NextAuth.js.
-2. **AWS Configuration**: Users configure their AWS credentials, region, and bucket name in the settings page.
-3. **File Upload**: Files are encrypted locally using AES or AWS server-side encryption before being uploaded to S3.
-4. **File Management**: Users can view, search, filter, and download their files from the dashboard.
-5. **Encryption Settings**: Users can choose between AWS-managed, KMS-managed, or customer-managed encryption keys.
+**Kawal Ostwal**
+- GitHub: [@Kawal0508](https://github.com/Kawal0508)
+- LinkedIn: [Kawal Ostwal](https://linkedin.com/in/kawal-ostwal)
 
-## Security Features
+## 🙏 Acknowledgments
 
-- **AES-256 Encryption**: Ensures files are encrypted before upload.
-- **Environment Variables**: Sensitive data like AWS credentials and encryption keys are stored securely.
-- **Role-Based Access**: Only authenticated users can access their files and configurations.
+- **Next.js Team** for the amazing React framework
+- **Vercel** for seamless deployment platform
+- **Supabase** for managed PostgreSQL service
+- **Prisma** for type-safe database ORM
+- **Radix UI** for accessible component library
 
-## Future Enhancements
+---
 
-- Add support for multi-file uploads.
-- Implement file sharing with secure links.
-- Add detailed analytics for file usage and access.
+<div align="center">
+
+**⭐ Star this repository if you found it helpful!**
+
+[🔗 Live Demo](https://secure-vault-wine-gamma.vercel.app/) • [📖 Documentation](#) • [🐛 Report Bug](#) • [💡 Request Feature](#)
+
+</div>
